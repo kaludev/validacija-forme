@@ -53,7 +53,7 @@ const ispisiPolja = () =>{
     for(let elem of document.querySelectorAll('ul')){
         elem.remove();
     }
-    for(let key  of  Object.keys(error)){
+    for(key  in error){
         let div = document.querySelector(`input[name="${key}"]`).parentElement;
         let errorElement = document.createElement('ul');
 
