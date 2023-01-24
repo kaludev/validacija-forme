@@ -24,6 +24,8 @@ inputs.forEach(input =>{
                     let validation = inputValue.split(' ');
                     if(validation.length<2){
                         error[inputName] = ['polje mora da sadrzi ime i prezime']
+                    }else if(!(/^[a-zA-Z ]/g.test(inputValue) && /[a-zA-Z ]$/g.test(inputValue))){
+                        error[inputName] = ['polje moze da sadrzi samo slova']
                     }
                     break;
                 case 'email':
