@@ -24,13 +24,20 @@ inputs.forEach(input =>{
                     let validation = inputValue.split(' ');
                     if(validation.length<2){
                         error[inputName] = ['polje mora da sadrzi ime i prezime']
-                    }else if(!(/^[a-zA-Z ]/g.test(inputValue) && /[a-zA-Z ]$/g.test(inputValue))){
+                    }else if(!(/^[a-zA-Z]+ [a-zA-Z]+$/g.test(inputValue))){
                         error[inputName] = ['polje moze da sadrzi samo slova']
                     }
                     break;
                 case 'email':
                     if(!validateMail(inputValue)){
                         error[inputName] = ['email nije validan']
+                    }
+                    break;
+                case 'lozinka':
+                    if(inputValue.length < 8){
+                        error[inputName] = ['Lozinka mora imati 8 karaktera'];
+                    }else if (!(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$/.test(inputValue))){
+                        error[inputName] = ['Lozinka mora da sadrzi barem jedno malo slovo barem jedno veliko i barem jednu cifru'];
                     }
                     break;
                 case "ponovi_lozinku":
